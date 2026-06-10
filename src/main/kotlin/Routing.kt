@@ -4,47 +4,104 @@ import io.ktor.server.application.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
 
+
 fun Application.configureRouting() {
+
     routing {
 
+
+        // Endpoint de prueba Railway
         get("/") {
-            call.respondText("Backend GAT funcionando en Railway")
+
+            call.respondText(
+                "Backend GAT funcionando correctamente en Railway"
+            )
+
         }
 
-        // Vista principal: Administradora
+
+        // ===============================
+        // RAMA PRINCIPAL - ADMINISTRADORA
+        // ===============================
+
         route("/admin") {
 
+
             get {
-                call.respondText("Vista principal: Administradora del backend")
+
+                call.respondText(
+                    "Vista Principal: Administradora conectada al Backend"
+                )
+
             }
+
 
             post {
-                call.respondText("Administrador registrado de prueba")
+
+                call.respondText(
+                    "Administrador registrado correctamente"
+                )
+
             }
+
         }
 
-        // Rama 1
+
+
+        // ===============================
+        // RAMA 1 - USUARIOS
+        // ===============================
+
         route("/rama1") {
 
+
             get {
-                call.respondText("Rama 1: módulo de usuarios conectado al backend")
+
+                call.respondText(
+                    "Rama 1 funcionando: Gestion de usuarios"
+                )
+
             }
+
 
             post {
-                call.respondText("Rama 1: usuario registrado de prueba")
+
+                call.respondText(
+                    "Usuario registrado correctamente"
+                )
+
             }
+
         }
 
-        // Rama 2
+
+
+        // ===============================
+        // RAMA 2 - REPORTES
+        // ===============================
+
         route("/rama2") {
 
+
             get {
-                call.respondText("Rama 2: módulo de reportes conectado al backend")
+
+                call.respondText(
+                    "Rama 2 funcionando: Gestion de reportes"
+                )
+
             }
 
+
             post {
-                call.respondText("Rama 2: reporte generado de prueba")
+
+                call.respondText(
+                    "Reporte generado correctamente"
+                )
+
             }
+
         }
+
     }
+
 }
