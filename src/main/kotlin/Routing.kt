@@ -4,173 +4,47 @@ import io.ktor.server.application.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
 
-
 fun Application.configureRouting() {
-
     routing {
 
-
-        // Endpoint principal para comprobar Railway
         get("/") {
-
-            call.respondText(
-                "Backend GAT funcionando correctamente en Railway"
-            )
-
+            call.respondText("Backend GAT funcionando en Railway")
         }
 
-
-        // ==============================
-        // ENDPOINTS ADMINISTRADOR
-        // ==============================
-
-
+        // Vista principal: Administradora
         route("/admin") {
 
-
-            // Consultar administradores
             get {
-
-                call.respondText(
-                    "Lista de administradores"
-                )
-
+                call.respondText("Vista principal: Administradora del backend")
             }
 
-
-            // Crear administrador
             post {
-
-                call.respondText(
-                    "Administrador registrado correctamente"
-                )
-
+                call.respondText("Administrador registrado de prueba")
             }
-
-
-            // Actualizar administrador
-            put("/{id}") {
-
-                val id = call.parameters["id"]
-
-                call.respondText(
-                    "Administrador con ID $id actualizado"
-                )
-
-            }
-
-
-            // Eliminar administrador
-            delete("/{id}") {
-
-                val id = call.parameters["id"]
-
-                call.respondText(
-                    "Administrador con ID $id eliminado"
-                )
-
-            }
-
         }
 
+        // Rama 1
+        route("/rama1") {
 
-
-        // ==============================
-        // GESTION DE USUARIOS
-        // ==============================
-
-
-        route("/usuarios") {
-
-
-            // Obtener usuarios
             get {
-
-                call.respondText(
-                    "Lista de usuarios del sistema"
-                )
-
+                call.respondText("Rama 1: módulo de usuarios conectado al backend")
             }
 
-
-            // Crear usuario
             post {
-
-                call.respondText(
-                    "Usuario creado correctamente"
-                )
-
+                call.respondText("Rama 1: usuario registrado de prueba")
             }
-
-
-            // Actualizar usuario
-            put("/{id}") {
-
-                val id = call.parameters["id"]
-
-                call.respondText(
-                    "Usuario con ID $id actualizado"
-                )
-
-            }
-
-
-            // Eliminar usuario
-            delete("/{id}") {
-
-                val id = call.parameters["id"]
-
-                call.respondText(
-                    "Usuario con ID $id eliminado"
-                )
-
-            }
-
         }
 
+        // Rama 2
+        route("/rama2") {
 
-
-
-        // ==============================
-        // REPORTES DEL ADMINISTRADOR
-        // ==============================
-
-
-        route("/reportes") {
-
-
-            // Reporte general
             get {
-
-                call.respondText(
-                    "Reporte general del sistema"
-                )
-
+                call.respondText("Rama 2: módulo de reportes conectado al backend")
             }
 
-
-            // Reporte de traslados
-            get("/traslados") {
-
-                call.respondText(
-                    "Reporte de traslados realizados"
-                )
-
+            post {
+                call.respondText("Rama 2: reporte generado de prueba")
             }
-
-
-            // Reporte de unidades
-            get("/unidades") {
-
-                call.respondText(
-                    "Reporte de disponibilidad de unidades"
-                )
-
-            }
-
         }
-
-
     }
-
 }
